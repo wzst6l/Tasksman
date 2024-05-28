@@ -1,0 +1,151 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "login",
+      "value": "Sign in/Sign up>"
+    },
+    {
+      "name": "personalInfo",
+      "value": "Personal info"
+    },
+    {
+      "name": "avatar",
+      "value": "Profile picture"
+    },
+    {
+      "name": "nickname",
+      "value": "Nickname"
+    },
+    {
+      "name": "inputNickname",
+      "value": "Set"
+    },
+    {
+      "name": "inputPhone",
+      "value": "Authorize"
+    },
+    {
+      "name": "phone",
+      "value": "Mobile number"
+    },
+    {
+      "name": "dearUser",
+      "value": "Dear user>"
+    },
+    {
+      "name": "hwid_no_internet_connect",
+      "value": "No Internet connection. Check your network settings."
+    },
+    {
+      "name": "hwid_text_button_known",
+      "value": "OK"
+    },
+    {
+      "name": "agree",
+      "value": "I have read and agree to "
+    },
+    {
+      "name": "privacy",
+      "value": "Privacy Policy"
+    },
+    {
+      "name": "and",
+      "value": " and "
+    },
+    {
+      "name": "protocols",
+      "value": "User Service Agreement"
+    },
+    {
+      "name": "others",
+      "value": "Sign in another way"
+    },
+    {
+      "name": "end",
+      "value": "."
+    },
+    {
+      "name": "appName",
+      "value": "App name"
+    },
+    {
+      "name": "appDesc",
+      "value": "App description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "任务管理"
+    },
+    {
+      "name": "title",
+      "value": "任务管理"
+    },
+    {
+      "name": "add_task",
+      "value": "+"
+    },
+    {
+      "name": "target_name",
+      "value": "2024开发任务"
+    },
+    {
+      "name": "target_info",
+      "value": "高质量完成开发任务交付"
+    },
+    {
+      "name": "overall_progress",
+      "value": "总进度"
+    },
+    {
+      "name": "add_task_dialog",
+      "value": "添加任务"
+    },
+    {
+      "name": "latest_updateTime",
+      "value": "最近更新: "
+    },
+
+    {
+      "name": "sub_goals",
+      "value": "任务"
+    },
+    {
+      "name": "cancel_button",
+      "value": "取消"
+    },
+    {
+      "name": "confirm_button",
+      "value": "确定"
+    },
+    {
+      "name": "delete_button",
+      "value": "删除"
+    },
+    {
+      "name": "edit_button",
+      "value": "编辑"
+    },
+    {
+      "name": "select_all_button",
+      "value": "全选"
+    },
+    {
+      "name": "cannot_input_empty",
+      "value": "名称不能为空！"
+    },
+    {
+      "name": "input_target_name",
+      "value": "输入名称"
+    }
+
+
+  ]
+}
