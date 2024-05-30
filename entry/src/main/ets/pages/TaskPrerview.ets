@@ -8,7 +8,7 @@ export struct TaskPrerview {
   @Prop total: number = 3
   @Prop @Watch('onFinishChange') finish: number  = 1
   @State level:number = 0
-  @State levelMax:number = 2
+  @State levelMax:number = 3
 
   // 当finish发生变化时
   onFinishChange(){
