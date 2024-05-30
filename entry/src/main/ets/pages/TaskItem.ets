@@ -3,6 +3,7 @@ import currentTime from '../common/utils/DateLocal';
 import Task from '../model/Task';
 import Tasks from '../model/Tasks';
 import { ProgressEdit } from './ProgressEdit'
+import { promptAction } from '@kit.ArkUI';
 
 
 @Component
@@ -76,6 +77,14 @@ export struct TaskItem {
               if (Tasks.updateTask(this.clickIndex, this.latestProgress, this.updateDate)) {
                 this.totalProgressChanged = !this.totalProgressChanged
                 this.task = Tasks.allData[this.clickIndex]
+                if(this.task.progress == CommonConstants.SLIDER_MAX_VALUE && this.task.typeIndex != undefined && CommonConstants.TASK_TYPES[this.task.typeIndex] != undefined){
+                  promptAction.showToast({
+                    message: CommonConstants.TASK_TYPES[this.task.typeIndex] + '+1~',
+                    duration: CommonConstants.TOAST_TIME,
+                    offset: { dx: 10, dy: -10}
+                  })
+                }
+
               }
               this.isExpand = false
             }

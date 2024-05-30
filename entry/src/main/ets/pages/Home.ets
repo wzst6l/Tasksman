@@ -26,7 +26,7 @@ struct Home {
   }
 
   //保存新增的任务
-  saveTask(name: string) {
+  saveTask(name: string, typeIndex?: number) {
     if (name == '') {
       promptAction.showToast({
         message: $r('app.string.cannot_input_empty'),
@@ -35,7 +35,7 @@ struct Home {
       })
       return
     }
-    Tasks.add(new Task(name, currentTime(), 0))
+    Tasks.add(new Task(name, currentTime(), 0, typeIndex))
     this.tasks = Tasks.allData
     this.totalProgressChanged = !this.totalProgressChanged
     this.dialogController.close()
@@ -44,8 +44,8 @@ struct Home {
   // 新增任务的对话框控制器
   dialogController = new CustomDialogController({
     builder: AddTask({
-      onConfirm: (value: string) => {
-        this.saveTask(value)
+      onConfirm: (value: string, typeIndex?: number) => {
+        this.saveTask(value, typeIndex)
       }
     }),
     alignment: DialogAlignment.Bottom,

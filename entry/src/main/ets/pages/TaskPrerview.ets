@@ -6,7 +6,21 @@ export struct TaskPrerview {
   @State message: string = 'Hello World';
   @Prop latestUpdate: string = '2024/5/27 12:12:14' // 接收父组件传的最新更新时间
   @Prop total: number = 3
-  @Prop finish: number = 1
+  @Prop @Watch('onFinishChange') finish: number  = 1
+  @State level:number = 0
+  @State levelMax:number = 2
+
+  // 当finish发生变化时
+  onFinishChange(){
+    for (let i = 0; i < CommonConstants.LEVEL_MAX.length; i++) {
+      if(this.finish < CommonConstants.LEVEL_MAX[i]){
+        this.level = i + 1
+        this.levelMax = CommonConstants.LEVEL_MAX[i]
+        break
+      }
+    }
+
+  }
 
   build() {
     Column() {
@@ -25,12 +39,45 @@ export struct TaskPrerview {
         .width(90)
         .height(90)
       Column() {
-        Text('2024开发任务')
+        Text($r('app.string.target_name'))
           .fontSize($r('sys.float.ohos_id_text_size_dialog_tittle'))
           .fontWeight(FontWeight.Bold)
-        Text('高质量完成交付')
+        Text($r('app.string.target_info'))
           .subTextStyle()
-      }.padding(20)
+        Column(){
+          Row(){
+            Row(){
+              Text('人生旅者等级L').levelTextStyle()
+              Text(this.level.toString()).levelTextStyle()
+            }
+
+            Text(this.finish + '/' + this.levelMax).levelTextStyle()
+          }.width('100%')
+          .justifyContent(FlexAlign.SpaceBetween)
+          .margin({
+            bottom: $r('app.float.text_margin')
+          })
+
+
+          Progress({
+            value: this.finish,
+            total: this.levelMax,
+            type: ProgressType.Capsule
+          }).width('100%')
+            .height(12)
+        }.backgroundColor($r('app.color.edit_blue'))
+        .borderRadius(10)
+        .padding(10)
+        .margin({
+          top: 5
+        })
+
+
+
+      }.padding(10)
+      .width('70%')
+      .alignItems(HorizontalAlign.Start)
+
     }
     .width('100%')
     .padding(20)
@@ -67,7 +114,9 @@ export struct TaskPrerview {
         }).width(50)
       }.padding(20)
     }.width('100%')
-    .padding(20)
+    .padding({
+      left: 20
+    })
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }
@@ -75,8 +124,11 @@ export struct TaskPrerview {
 // 二级文字样式复用
 @Extend(Text)
 function subTextStyle() {
-  .fontSize($r('sys.float.ohos_id_text_size_sub_title1'))
+  .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))
   .fontColor($r('sys.color.ohos_id_color_text_secondary'))
+  .margin({
+    top:10
+  })
 
 }
 
@@ -87,4 +139,13 @@ function secondTextStyle() {
   .margin({
     top: $r('app.float.list_margin_top')
   })
+}
+
+@Extend(Text)
+function levelTextStyle() {
+  .fontSize($r('sys.float.ohos_id_text_size_body3'))
+  .fontColor($r('sys.color.ohos_id_color_text_secondary'))
+  .fontWeight(FontWeight.Bold)
+  .fontStyle(FontStyle.Italic)
+
 }

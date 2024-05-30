@@ -82,7 +82,7 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "任务管理"
+      "value": "目标库"
     },
     {
       "name": "title",
@@ -94,11 +94,11 @@
     },
     {
       "name": "target_name",
-      "value": "2024开发任务"
+      "value": "2024任务概览"
     },
     {
       "name": "target_info",
-      "value": "高质量完成开发任务交付"
+      "value": "不积跬步无以至千里~"
     },
     {
       "name": "overall_progress",

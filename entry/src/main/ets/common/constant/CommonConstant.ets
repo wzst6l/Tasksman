@@ -229,4 +229,11 @@ export class CommonConstants {
    */
   static readonly TRANSITION_ANIMATION_Y: number = 0;
 
+
+  static readonly TASK_TYPES: string[] = ['健康', '职业技能' , '业余爱好', '沟通表达'];
+
+
+  static readonly LEVEL_MAX: number[] = [3, 5, 10, 30 , 60, 100];
+
+
 }
