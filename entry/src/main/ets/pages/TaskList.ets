@@ -10,7 +10,7 @@ import currentTime from '../common/utils/DateLocal';
 export struct TaskList {
   @State isEdit: boolean = false // 是否编辑状态
   @Link tasks: Task[] // = [new Task('1', currentTime(), 10), new Task('2', currentTime(), 30), new Task('3', currentTime(), 70)]
-  @State selectedTasks: boolean[] = [] // 选中的任务组
+  @State @Watch('onSelectedTasksChange') selectedTasks: boolean[] = [] // 选中的任务组
   @State clickIndex: number = CommonConstants.DEFAULT_CLICK_INDEX // 点击的任务索引
   @State selectAll: boolean = false // 全选
   // 预览用State, 实际：Consume，因为子组件可以变更它
@@ -20,6 +20,11 @@ export struct TaskList {
   // 判断是否有被选中的任务
   isAnyTaskSelected() {
     return this.selectedTasks.some(val => val == true)
+  }
+
+  onSelectedTasksChange(){
+    this.selectAll = this.tasks.length == this.selectedTasks.length && this.selectedTasks.every(item => !!item)
+
   }
 
   // 删除选中任务，并重置各状态
